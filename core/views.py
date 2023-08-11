@@ -12,12 +12,12 @@ def contact(request):
     return render(request, 'contact.html')
 
 
-def product_list(request):
-    return render(request, 'product_list.html')
+# def product_list(request):
+#     return render(request, 'product_list.html')
 
 
-def produtct(request):
-    return render(request, 'product.html')
+# def produtct(request):
+#     return render(request, 'product.html')
 
 
 
