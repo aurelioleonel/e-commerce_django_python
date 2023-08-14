@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from core import views
 from catalog import views as views_catalog
+from django.views.static import serve as serve_static
 
 
 urlpatterns = [
