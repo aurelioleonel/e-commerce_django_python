@@ -9,6 +9,8 @@ from .models import Product, Category
 class ProductListView(generic.ListView):
     model = Product
     template_name = 'catalog/product_list.html'
+    context_object_name = 'products'
+    paginate_by = 3
 
 
 product_list = ProductListView.as_view()
