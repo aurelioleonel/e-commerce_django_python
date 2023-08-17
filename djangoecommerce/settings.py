@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Apps
     'core',
     'catalog',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -151,7 +152,8 @@ DEFAULT_FROM_EMAIL = 'admin@djangocommerce.com'
 # auth
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
-LOGOUT_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'logout'
+AUTH_USER_MODEL = 'accounts.User'
 
 
 
