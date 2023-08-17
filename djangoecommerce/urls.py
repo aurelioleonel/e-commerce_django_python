@@ -17,16 +17,34 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from core import views
-from catalog import views as views_catalog
-from django.views.static import serve as serve_static
+
+# login e logout
+from django.contrib.auth import views as auth_views
+
+
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls ),
+    path('admin/', admin.site.urls),
     path('contato/', views.contact, name='contact'),
-   # path('produto/', views.produtct, name='product'),
-    # path('produtos/', views.product_list, name='product_list'),
+    path('entrar/', auth_views.LoginView.as_view(), name='login'),
+    path('sair/', auth_views.LogoutView.as_view(), name='logout'),
+    path('registro/', views.register, name='register'),
+
     path('catalogo/', include(('catalog.urls', 'catalog'), namespace='catalog')),
     path('', views.index, name='index'),
 ]
+
+
+
+
+
+
+
+
+
+
+# path('entrar/', LoginView.as_view(), {'template_name': 'login.html'}, name='login'),
+    # path('produto/', views.produtct, name='product'),
+    # path('produtos/', views.product_list, name='product_list'),
 
