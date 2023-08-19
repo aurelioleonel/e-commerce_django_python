@@ -22,16 +22,15 @@ from core import views
 from django.contrib.auth import views as auth_views
 
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contato/', views.contact, name='contact'),
     path('entrar/', auth_views.LoginView.as_view(), name='login'),
-    path('sair/', auth_views.LogoutView.as_view(), name='logout'),
-    path('registro/', views.register, name='register'),
+    path('sair/', auth_views.LogoutView.as_view(), {'next_page': 'index'}, name='logout'),
+    # path('registro/', views.register, name='register'),
 
     path('catalogo/', include(('catalog.urls', 'catalog'), namespace='catalog')),
+    path('conta/', include(('accounts.urls', 'accounts'), namespace='accounts')),
     path('', views.index, name='index'),
 ]
 
